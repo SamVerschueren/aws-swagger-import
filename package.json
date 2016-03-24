@@ -1,0 +1,42 @@
+{
+  "name": "aws-swagger-import",
+  "version": "0.0.0",
+  "description": "AWS swagger importer",
+  "license": "MIT",
+  "repository": "SamVerschueren/aws-swagger-import",
+  "author": {
+    "name": "Sam Verschueren",
+    "email": "sam.verschueren@gmail.com",
+    "url": "github.com/SamVerschueren"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "aws",
+    "swagger",
+    "import",
+    "aws-swagger",
+    "api",
+    "gateway",
+    "api-gateway"
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.2.46",
+    "log-symbols": "^1.0.2",
+    "object-assign": "^4.0.1",
+    "path-exists": "^2.1.0",
+    "pify": "^2.3.0",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  }
+}
