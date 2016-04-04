@@ -49,11 +49,19 @@ Type: `string`
 admin access to API Gateway and should be able to invoke `lambda:AddPermission`.
 
 ##### region
-  
+
 Type: `string`  
 Default: `us-west-1`
 
 AWS region.
+
+##### filename
+
+Type: `string`
+Default: `~/.aws/credentials`
+
+Filename used when when loading credentials with AWS.SharedIniFileCredentials. See
+[AWS Documentation](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property).
 
 
 ## Related
