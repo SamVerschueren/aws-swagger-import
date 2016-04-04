@@ -6,6 +6,14 @@ const APIGateway = require('./lib/apigateway');
 
 const fsP = pify(fs);
 
+/**
+ * aws-swagger-import
+ * @param  {string}  filePath  - JSON swagger definition file
+ * @param  {object}  options  - Used for different classes in the AWS SDK
+ *								Required: name, profile
+ *								Optional: region, filename
+ * @return  {function}  - Function call to import API gateway
+ */
 module.exports = function (filePath, options) {
 	options = options || {};
 
