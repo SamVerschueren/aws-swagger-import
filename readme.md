@@ -48,20 +48,19 @@ Type: `string`
 [AWS Profile](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html). The user related to the profile should have
 admin access to API Gateway and should be able to invoke `lambda:AddPermission`.
 
-##### region
+##### region  
 
 Type: `string`  
 Default: `us-west-1`
 
 AWS region.
 
-##### filename
+##### filename  
 
-Type: `string`
+Type: `string`  
 Default: `~/.aws/credentials`
 
-Filename used when when loading credentials with AWS.SharedIniFileCredentials. See
-[AWS Documentation](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property).
+Filename used when when loading credentials. See [AWS Documentation](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property).
 
 
 ## Related

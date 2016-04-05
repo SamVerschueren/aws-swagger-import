@@ -6,14 +6,6 @@ const APIGateway = require('./lib/apigateway');
 
 const fsP = pify(fs);
 
-/**
- * aws-swagger-import
- * @param  {string}  filePath  - JSON swagger definition file
- * @param  {object}  options  - Used for different classes in the AWS SDK
- *								Required: name, profile
- *								Optional: region, filename
- * @return  {function}  - Function call to import API gateway
- */
 module.exports = function (filePath, options) {
 	options = options || {};
 
@@ -23,7 +15,7 @@ module.exports = function (filePath, options) {
 		err = new Error('Input file does not exist');
 	} else if (!options.name) {
 		err = new Error('No AWS API Gateway name');
-	} else if (!options.profile) {
+	} else if (!options.awsProfile) {
 		err = new Error('No AWS profile provided');
 	}
 
