@@ -40,9 +40,8 @@ Type: `string`
 
 Name of the API Gateway to import to.
 
-##### awsProfile
+##### awsProfile  
 
-*Required*  
 Type: `string`
 
 [AWS Profile](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html). The user related to the profile should have
@@ -60,7 +59,7 @@ AWS region.
 Type: `string`  
 Default: `~/.aws/credentials`
 
-[Filename]((http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property) to use when loading credentials.
+[Filename](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property) to use when loading credentials.
 
 
 ## Related
