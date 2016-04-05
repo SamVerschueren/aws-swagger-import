@@ -35,28 +35,28 @@ JSON swagger definition file.
 
 ##### name
 
-*Required*  
+*Required*<br>
 Type: `string`
 
 Name of the API Gateway to import to.
 
-##### awsProfile  
+##### awsProfile
 
 Type: `string`
 
 [AWS Profile](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html). The user related to the profile should have
 admin access to API Gateway and should be able to invoke `lambda:AddPermission`.
 
-##### awsRegion  
+##### awsRegion
 
-Type: `string`  
+Type: `string`<br>
 Default: `us-west-1`
 
 AWS region.
 
-##### awsFilename  
+##### awsFilename
 
-Type: `string`  
+Type: `string`<br>
 Default: `~/.aws/credentials`
 
 [Filename](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property) to use when loading credentials.
