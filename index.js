@@ -3,33 +3,42 @@ const fs = require('fs');
 const pathExists = require('path-exists');
 const pify = require('pify');
 const APIGateway = require('./lib/apigateway');
+const utils = require('./lib/utils');
 
 const fsP = pify(fs);
 
 module.exports = function (filePath, options) {
 	options = options || {};
 
-	let err;
-
 	if (typeof filePath !== 'string' || !pathExists.sync(filePath)) {
-		err = new Error('Input file does not exist');
-	} else if (!options.name) {
-		err = new Error('No AWS API Gateway name');
-	}
-
-	if (err) {
-		// Mark the error as friendly for the CLI
-		err.friendly = true;
-		return Promise.reject(err);
+		return Promise.reject(utils.createError('Input file does not exist'));
 	}
 
 	// Initialize the gateway
 	const gateway = new APIGateway(options);
 
-	return gateway.findRestApi(options.name)
-		.then(api => {
-			return fsP.readFile(filePath)
-				.then(contents => JSON.parse(contents.toString()))
-				.then(content => api.import(content));
+	return fsP.readFile(filePath, 'utf8')
+		.then(contents => {
+			// Parse the contents
+			contents = JSON.parse(contents.toString());
+
+			// Determine the name
+			let name = options.name || (contents.info && contents.info.title);
+
+			if (!name) {
+				throw utils.createError('No AWS API gateway name provided');
+			}
+
+			return gateway.findRestApi(name)
+				.then(api => {
+					return api.import(contents);
+				});
+		})
+		.catch(err => {
+			if (err.name === 'SyntaxError') {
+				throw utils.createError('Input file provided is not valid JSON');
+			}
+
+			throw err;
 		});
 };

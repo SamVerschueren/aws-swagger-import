@@ -1,4 +1,5 @@
 import test from 'ava';
+import tempWrite from 'temp-write';
 import m from '../';
 
 test('incorrect input file', async t => {
@@ -7,7 +8,14 @@ test('incorrect input file', async t => {
 	t.true(err.friendly);
 });
 
-test('no API Gateway name', async t => {
-	const err = await t.throws(m('./fixtures/swagger.json', {}), 'No AWS API Gateway name');
+test('input file is not json', async t => {
+	const input = await tempWrite('foo', 'swagger.json');
+	const err = await t.throws(m(input), 'Input file provided is not valid JSON');
+	t.true(err.friendly);
+});
+
+test('no API Gateway name found', async t => {
+	const input = await tempWrite('{}', 'swagger.json');
+	const err = await t.throws(m(input, {}), 'No AWS API gateway name provided');
 	t.true(err.friendly);
 });
