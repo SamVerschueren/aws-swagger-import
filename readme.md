@@ -15,7 +15,7 @@ $ npm install --save aws-swagger-import
 ```js
 const awsSwaggerImport = require('aws-swagger-import');
 
-awsSwaggerImport('swagger.json', {name: 'foo', profile: 'aws-profile'}).then(() => {
+awsSwaggerImport('swagger.json', {name: 'foo', awsProfile: 'aws-profile'}).then(() => {
 	// done
 });
 ```
