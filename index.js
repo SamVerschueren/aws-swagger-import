@@ -15,8 +15,6 @@ module.exports = function (filePath, options) {
 		err = new Error('Input file does not exist');
 	} else if (!options.name) {
 		err = new Error('No AWS API Gateway name');
-	} else if (!options.profile) {
-		err = new Error('No AWS profile provided');
 	}
 
 	if (err) {

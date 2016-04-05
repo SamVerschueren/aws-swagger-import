@@ -40,20 +40,26 @@ Type: `string`
 
 Name of the API Gateway to import to.
 
-##### profile
+##### awsProfile  
 
-*Required*  
 Type: `string`
 
 [AWS Profile](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html). The user related to the profile should have
 admin access to API Gateway and should be able to invoke `lambda:AddPermission`.
 
-##### region
-  
+##### awsRegion  
+
 Type: `string`  
 Default: `us-west-1`
 
 AWS region.
+
+##### awsFilename  
+
+Type: `string`  
+Default: `~/.aws/credentials`
+
+[Filename](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html#constructor-property) to use when loading credentials.
 
 
 ## Related

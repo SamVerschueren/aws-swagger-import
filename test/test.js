@@ -11,8 +11,3 @@ test('no API Gateway name', async t => {
 	const err = await t.throws(m('./fixtures/swagger.json', {}), 'No AWS API Gateway name');
 	t.true(err.friendly);
 });
-
-test('no AWS Profile provided', async t => {
-	const err = await t.throws(m('./fixtures/swagger.json', {name: 'foo'}), 'No AWS profile provided');
-	t.true(err.friendly);
-});
