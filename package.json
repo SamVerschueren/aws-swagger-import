@@ -1,6 +1,6 @@
 {
   "name": "aws-swagger-import",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AWS swagger importer",
   "license": "MIT",
   "repository": "SamVerschueren/aws-swagger-import",
