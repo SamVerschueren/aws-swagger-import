@@ -3,6 +3,7 @@ const fs = require('fs');
 const pathExists = require('path-exists');
 const pify = require('pify');
 const APIGateway = require('./lib/apigateway');
+const transformer = require('./lib/transformer');
 const utils = require('./lib/utils');
 
 const fsP = pify(fs);
@@ -22,21 +23,18 @@ module.exports = function (filePath, options) {
 			// Parse the contents
 			contents = JSON.parse(contents.toString());
 
-			// Determine the name
-			let name = options.name || (contents.info && contents.info.title);
+			// Transform the definition
+			const definition = transformer.transform(contents, options);
+			const name = definition.info.title;
 
 			if (!name) {
+				// Trow an error if the name could not be determined
 				throw utils.createError('No AWS API gateway name provided');
-			}
-
-			if (contents.info) {
-				// Make sure to overwrite the title
-				contents.info.title = name;
 			}
 
 			return gateway.findRestApi(name)
 				.then(api => {
-					return api.import(contents);
+					return api.import(definition);
 				});
 		})
 		.catch(err => {

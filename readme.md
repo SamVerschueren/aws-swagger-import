@@ -40,6 +40,18 @@ Type: `string`
 
 Name of the API Gateway to import to.
 
+##### alias
+
+Type: `string`
+
+Alias or version of the lambda functions that should be invoked by the gateway.
+
+##### accountId
+
+Type: `string`
+
+AWS Account ID that will be used in the swagger definition file when linking lambda functions.
+
 ##### awsProfile
 
 Type: `string`
