@@ -29,6 +29,11 @@ module.exports = function (filePath, options) {
 				throw utils.createError('No AWS API gateway name provided');
 			}
 
+			if (contents.info) {
+				// Make sure to overwrite the title
+				contents.info.title = name;
+			}
+
 			return gateway.findRestApi(name)
 				.then(api => {
 					return api.import(contents);

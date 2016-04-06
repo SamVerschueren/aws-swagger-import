@@ -29,13 +29,10 @@
     "api-gateway"
   ],
   "dependencies": {
-    "aws-sdk": "^2.2.46",
+    "aws-sdk": "^2.3.1",
     "delay": "^1.3.1",
-    "log-symbols": "^1.0.2",
-    "object-assign": "^4.0.1",
     "path-exists": "^2.1.0",
-    "pify": "^2.3.0",
-    "uuid": "^2.0.1"
+    "pify": "^2.3.0"
   },
   "devDependencies": {
     "ava": "*",

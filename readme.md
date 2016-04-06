@@ -45,7 +45,7 @@ Name of the API Gateway to import to.
 Type: `string`
 
 [AWS Profile](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html). The user related to the profile should have
-admin access to API Gateway and should be able to invoke `lambda:AddPermission`.
+admin access to API Gateway.
 
 ##### awsRegion
 
